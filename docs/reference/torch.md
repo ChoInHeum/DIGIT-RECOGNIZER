@@ -25,3 +25,25 @@ torch.tensor(data, *, dtype=None, device=None, requires_grad=False, pin_memory=F
 ### 반환값
 
 - 새 `torch.Tensor`이다. 항상 데이터를 복사하므로 원본 numpy 배열과 메모리를 공유하지 않는다. 원본을 바꿔도 텐서는 바뀌지 않고, 그 반대도 마찬가지이다.
+
+## 02. `torch.utils.data.TensorDataset`
+
+``` python
+torch.utils.data.TensorDataset(*tensors)
+```
+
+### 기능
+
+- 첫 번째 차원(개수) 길이가 같은 텐서들을 묶어서, 인덱스 하나로 각 텐서의 같은 위치를 함께 꺼낼 수 있게 한다.
+
+### 매개변수
+
+| 매개변수 | 역할 | 기본값 |
+| --- | --- | --- |
+| `*tensors` | 묶을 텐서들. 개수 제한 없음. 첫 번째 차원 길이가 모두 같아야 함 | 없음 (필수)
+
+### 반환값
+- `TensorDataset` 객체(`Dataset`의 한 종류)이다.
+  - `len(dataset)` $\rightarrow$ 데이터 개수
+  - `dataset[index]` $\rightarrow$ 넣은 순서대로 각 텐서의 `index`번째를 담은 튜플
+- 원본 테서를 복사하지 않고 참조만 한다.
