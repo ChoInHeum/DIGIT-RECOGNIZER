@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 from pathlib import Path
 
 # directory
@@ -9,3 +12,5 @@ TEST_PATH = DATA_PATH / "test.csv"
 TRAIN_PATH = DATA_PATH / "train.csv"
 SAMPLE_SUBMISSION_PATH = DATA_PATH / "sample_submission.csv"
 
+def load_train_data() -> pd.DataFrame:
+  return pd.read_csv(TRAIN_PATH, dtype=np.uint8)
