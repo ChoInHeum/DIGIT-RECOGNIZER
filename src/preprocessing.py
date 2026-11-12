@@ -2,14 +2,14 @@ import numpy as np
 import pandas as pd
 import torch
 
-from utility import log, get_device
+from utility import log
 
 def normalize_pixels(pixels: np.ndarray) -> np.ndarray:
   pixels_normalized = np.astype(pixels, np.float32) / 255
   return pixels_normalized
 
 def to_tensor(ndarray: np.ndarray, dtype: torch.dtype) -> torch.Tensor:
-  return torch.tensor(ndarray, dtype=dtype, device=get_device())
+  return torch.tensor(ndarray, dtype=dtype)
 
 def preprocess(train_df: pd.DataFrame) -> np.ndarray:
   pixels = train_df.iloc[:, 1:].to_numpy()
