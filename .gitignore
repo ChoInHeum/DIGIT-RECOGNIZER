@@ -1,0 +1,13 @@
+# vscode
+.vscode
+
+# claude
+claude.md
+
+# data
+data
+
+# python
+__pycache__/
+*.py[cod]
+.venv
