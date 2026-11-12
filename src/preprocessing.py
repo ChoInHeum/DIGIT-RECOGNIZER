@@ -8,9 +8,8 @@ def normalize_pixels(pixels: np.ndarray) -> np.ndarray:
   pixels_normalized = np.astype(pixels, np.float32) / 255
   return pixels_normalized
 
-def to_tensor(images: np.ndarray) -> torch.Tensor:
-  return torch.tensor(images, dtype=torch.float32, device=get_device())
-
+def to_tensor(ndarray: np.ndarray, dtype: torch.dtype) -> torch.Tensor:
+  return torch.tensor(ndarray, dtype=dtype, device=get_device())
 
 def preprocess(train_df: pd.DataFrame) -> np.ndarray:
   pixels = train_df.iloc[:, 1:].to_numpy()
