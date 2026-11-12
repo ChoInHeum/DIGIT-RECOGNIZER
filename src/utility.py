@@ -4,11 +4,10 @@ from datetime import datetime
 
 def get_device() -> torch.device:
   if not torch.cuda.is_available():
-    device = torch.device(type="cpu")
-    return device
+    log(f"can't use cuda")
+    return torch.device(type="cpu")
 
-  device = torch.device(type="cuda")
-  return device
+  return torch.device(type="cuda")
 
 def log(msg, time_fmt: str = "%Y-%m-%d %H:%M:%S") -> None:
   prefix = f"[{datetime.now().strftime(time_fmt)}] "
