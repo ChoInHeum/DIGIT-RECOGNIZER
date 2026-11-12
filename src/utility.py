@@ -3,11 +3,11 @@ import torch
 from datetime import datetime
 
 def get_device() -> torch.device:
-  if torch.cuda.is_available():
-    device = torch.device(type="cuda")
-    log(f"device name: {torch.cuda.get_device_name(device=device)}")
-  else:
+  if not torch.cuda.is_available():
     device = torch.device(type="cpu")
+    return device
+
+  device = torch.device(type="cuda")
   return device
 
 def log(msg, time_fmt: str = "%Y-%m-%d %H:%M:%S") -> None:
