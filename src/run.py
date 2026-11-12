@@ -19,7 +19,7 @@ def main() -> None:
   log(f"images_train shape: {images_train.shape}")
   log(f"images_valid shape: {images_valid.shape}")
   log(f"labels_train shape: {labels_train.shape}")
-  log(f"labels_train shape: {labels_valid.shape}")
+  log(f"labels_valid shape: {labels_valid.shape}")
 
   return None
 
